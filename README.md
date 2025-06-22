@@ -1,91 +1,105 @@
-# DIO - Trilha .NET - Banco de Dados
-www.dio.me
+# 📚 DIO - Trilha .NET - Banco de Dados: Desafio de Consultas SQL
 
-## Desafio de projeto
-Para este desafio, você precisará usar seus conhecimentos adquiridos no módulo de banco de dados, da trilha .NET da DIO.
+---
 
-## Contexto
-Você é responsável pelo banco de dados de um site de filmes, onde são armazenados dados sobre os filmes e seus atores. Sendo assim, foi solicitado para que você realize uma consulta no banco de dados com o objetivo de trazer alguns dados para análises.
+Este projeto faz parte do desafio proposto na **Trilha .NET da Digital Innovation One (DIO)**, focado em manipulação e consulta de bancos de dados. O objetivo é aplicar os conhecimentos adquiridos no módulo de banco de dados para realizar diversas consultas em um banco de dados de filmes.
 
-## Proposta
-Você precisará realizar 12 consultas ao banco de dados, cada uma retornando um tipo de informação.
-O seu banco de dados está modelado da seguinte maneira:
+---
+
+## 💻 Tecnologias Utilizadas
+
+* **SQL Server:** Sistema de Gerenciamento de Banco de Dados Relacional (SGBDR) utilizado.
+* **SQL (Structured Query Language):** Linguagem padrão para manipulação e consulta de dados em bancos de dados.
+
+---
+
+## ✨ Funcionalidades
+
+O projeto consiste na criação e execução de 12 consultas SQL específicas em um banco de dados de filmes. Cada consulta tem como objetivo extrair informações distintas, demonstrando habilidades em:
+
+* Seleção de dados (`SELECT`).
+* Ordenação de resultados (`ORDER BY`).
+* Filtragem de dados (`WHERE`).
+* Agrupamento de dados (`GROUP BY`).
+* Junção de tabelas (`JOIN`) para combinar informações de diferentes entidades (Filmes, Atores, Gêneros, ElencoFilme, FilmesGenero).
+
+---
+
+## 📊 Modelo do Banco de Dados
+
+O banco de dados utilizado neste desafio é modelado para armazenar informações sobre filmes, atores e seus gêneros. O diagrama abaixo ilustra a estrutura das tabelas e seus relacionamentos:
 
 ![Diagrama banco de dados](Imagens/diagrama.png)
 
-As tabelas sao descritas conforme a seguir:
+### Descrição das Tabelas:
 
-**Filmes**
+* **Filmes:** Armazena informações detalhadas sobre os filmes (nome, ano, duração).
+* **Atores:** Contém dados dos atores (primeiro nome, último nome, gênero).
+* **Generos:** Armazena os diferentes gêneros de filmes.
+* **ElencoFilme:** Tabela de relacionamento entre **Filmes** e **Atores**, indicando quais atores participaram de quais filmes e seus papéis.
+* **FilmesGenero:** Tabela de relacionamento entre **Filmes** e **Generos**, permitindo que um filme tenha múltiplos gêneros e um gênero esteja associado a vários filmes.
 
-Tabela responsável por armazenar informações dos filmes.
+---
 
-**Atores**
+## 🚀 Instruções de Execução
 
-Tabela responsável por armazenar informações dos atores.
+Para replicar e executar as consultas deste desafio, siga os passos abaixo:
 
-**Generos**
+1.  **Clone este repositório:**
+    ```bash
+    git clone [https://github.com/genildon-barreto/trilha-net-banco-de-dados-desafio.git](https://github.com/genildon-barreto/trilha-net-banco-de-dados-desafio.git)
+    ```
+2.  **Navegue até o diretório do projeto:**
+    ```bash
+    cd trilha-net-banco-de-dados-desafio
+    ```
+3.  **Prepare o Banco de Dados:**
+    * Execute o arquivo `Script Filmes.sql` (localizado na pasta `Scripts`) em seu SQL Server. Este script criará o banco de dados chamado `Filmes`, juntamente com as tabelas e dados necessários para as consultas.
 
-Tabela responsável por armazenar os gêneros dos filmes.
+4.  **Execute as Consultas:**
+    * As 12 consultas solicitadas estão contidas no código SQL que você desenvolverá com base nas descrições de objetivo fornecidas no projeto original. Utilize seu ambiente de desenvolvimento SQL preferido (SQL Server Management Studio, Azure Data Studio, etc.) para executá-las.
 
-**ElencoFilme**
+---
 
-Tabela responsável por representar um relacionamento do tipo muitos para muitos entre filmes e atores, ou seja, um ator pode trabalhar em muitos filmes, e filmes
-podem ter muitos atores.
+## 🎯 Objetivo das Consultas
 
-**FilmesGenero**
+O desafio exige a criação de 12 consultas específicas, cada uma projetada para retornar um tipo de informação diferente, conforme exemplificado a seguir (retornos esperados também presentes no projeto original):
 
-Tabela responsável por representar um relacionamento do tipo muitos para muitos entre filmes e gêneros, ou seja, um filme pode ter mais de um gênero, e um genêro pode fazer parte de muitos filmes.
+1.  **Buscar o nome e ano dos filmes.**
+2.  **Buscar o nome e ano dos filmes, ordenados por ordem crescente pelo ano.**
+3.  **Buscar pelo filme "De Volta para o Futuro", trazendo o nome, ano e a duração.**
+4.  **Buscar os filmes lançados em 1997.**
+5.  **Buscar os filmes lançados APÓS o ano 2000.**
+6.  **Buscar os filmes com a duração maior que 100 e menor que 150, ordenando pela duração em ordem crescente.**
+7.  **Buscar a quantidade de filmes lançadas no ano, agrupando por ano, ordenando pela duração em ordem decrescente.**
+8.  **Buscar os Atores do gênero masculino, retornando o PrimeiroNome, UltimoNome.**
+9.  **Buscar os Atores do gênero feminino, retornando o PrimeiroNome, UltimoNome, e ordenando pelo PrimeiroNome.**
+10. **Buscar o nome do filme e o gênero.**
+11. **Buscar o nome do filme e o gênero do tipo "Mistério".**
+12. **Buscar o nome do filme e os atores, trazendo o PrimeiroNome, UltimoNome e seu Papel.**
 
-## Preparando o banco de dados
-Você deverá executar o arquivo **Script Filmes.sql** em seu banco de dados SQL Server, presente na pasta Scripts deste repositório ([ou clique aqui](Script%20Filmes.sql)). Esse script irá criar um banco chamado **Filmes**, contendo as tabelas e os dados necessários para você realizar este desafio.
+---
 
-## Objetivo
-Você deverá criar diversas consultas, com o objetivo de retornar os dados a seguir. Abaixo de cada pedido tem o retorno esperado. O seu retorno deve ser igual ao da imagem.
+## 🧠 Aprendizados do Projeto
 
-## 1 - Buscar o nome e ano dos filmes
+Este projeto foi fundamental para solidificar o conhecimento em SQL e manipulação de bancos de dados relacionais. Os principais aprendizados incluem:
 
-![Exercicio 1](Imagens/1.png)
+* Domínio de comandos SQL essenciais como `SELECT`, `FROM`, `WHERE`, `ORDER BY`, `GROUP BY`, `JOIN`.
+* Compreensão de diferentes tipos de `JOINs` (INNER JOIN) para combinar dados de múltiplas tabelas.
+* Capacidade de criar consultas complexas para extrair informações específicas e realizar análises de dados.
+* Interpretação e trabalho com modelos de banco de dados relacionais e diagramas de entidade-relacionamento.
+* Resolução de problemas de consulta de dados em cenários práticos.
 
-## 2 - Buscar o nome e ano dos filmes, ordenados por ordem crescente pelo ano
+Este projeto é um fork do trabalho realizado seguindo as instruções do professor **Leonardo Buta**.  
+[https://github.com/digitalinnovationone/trilha-net-banco-de-dados-desafio.git](https://github.com/digitalinnovationone/trilha-net-banco-de-dados-desafio)
+---
 
-![Exercicio 2](Imagens/2.png)
+## 🎓 Digital Innovation One (DIO)
 
-## 3 - Buscar pelo filme de volta para o futuro, trazendo o nome, ano e a duração
+[DIO](https://www.dio.me)
 
-![Exercicio 3](Imagens/3.png)
+---
 
-## 4 - Buscar os filmes lançados em 1997
+## 🤝 Contribuições
 
-![Exercicio 4](Imagens/4.png)
-
-## 5 - Buscar os filmes lançados APÓS o ano 2000
-
-![Exercicio 5](Imagens/5.png)
-
-## 6 - Buscar os filmes com a duracao maior que 100 e menor que 150, ordenando pela duracao em ordem crescente
-
-![Exercicio 6](Imagens/6.png)
-
-## 7 - Buscar a quantidade de filmes lançadas no ano, agrupando por ano, ordenando pela duracao em ordem decrescente
-
-![Exercicio 7](Imagens/7.png)
-
-## 8 - Buscar os Atores do gênero masculino, retornando o PrimeiroNome, UltimoNome
-
-![Exercicio 8](Imagens/8.png)
-
-## 9 - Buscar os Atores do gênero feminino, retornando o PrimeiroNome, UltimoNome, e ordenando pelo PrimeiroNome
-
-![Exercicio 9](Imagens/9.png)
-
-## 10 - Buscar o nome do filme e o gênero
-
-![Exercicio 10](Imagens/10.png)
-
-## 11 - Buscar o nome do filme e o gênero do tipo "Mistério"
-
-![Exercicio 11](Imagens/11.png)
-
-## 12 - Buscar o nome do filme e os atores, trazendo o PrimeiroNome, UltimoNome e seu Papel
-
-![Exercicio 12](Imagens/12.png)
+Este repositório serve como um registro do desafio completo. Embora o projeto principal seja a resolução das consultas propostas, sugestões de melhoria na estrutura ou documentação são sempre bem-vindas!
